@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Capriola">
+  <link rel="stylesheet" href="style.css" />
+  <title>Budget Planning Tool</title>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-10">
+        <h1 id="heading">Welcome to your new Budget Planner</h1>
+        <p id="intro">Organise your finances better with this easy to use Budget Planner.</p><br>
+      </div>
+      <div class="col-md-2">
+        <input type="button" value="Alter Name" class="btn btn-info" id="alterName" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <!-- Enter name form -->
+        <form id="enterName">
+          Please enter your name in the box below:
+          <input type="text" name="username" id="name" />
+          <input type="button" value="Submit Name" class="btn btn-info" id="nameSubmit" />
+        </form><br>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 text center">
+        Clear your budget planner to start afresh:
+        <button type="button" class="btn btn-danger reset">Reset</button>
+      </div>
+      <div class="col-md-4 text-center" id="budget">
+        <!-- Total budget form -->
+        Enter your net income, after taxes:
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label for="totalBudget" class="control-label col-md-1 col-md-offset-3">£</label>
+            <input type="number" class="form-control col-md-2" id="totalBudget" />
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4 text-center">
+        Select the period of time which this budget covers:
+        <form>
+          <div class="col-md-2 col-md-offset-4">
+            <select class="form-control" id="frequency">
+								  <option value="Monthly">Monthly</option>
+								  <option value="4 Weekly">4 Weekly</option>
+								  <option value="Weekly">Weekly</option>
+							  </select>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 col-md-offset-2  text-center">
+        <br>
+        <p>Indicate how you want to apportion your budget:</p>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-4" id="freeSpend">
+        <form>
+          <!-- Free spend Budget breakdown table -->
+          <table class="table" id="freeSpendTbl">
+            <caption class="text-center tableHeading">Free Expenditure</caption>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Target</th>
+                <th>%</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="category">General Expenses</td>
+                <td>£<input type="number" class="freeSubtotals budgetSubtotals" disabled/></td>
+                <td><input type="text" class="freePercent subtotalsPercent" readonly/></td>
+                <td><input type="button" value="-" class="btn btn-primary button deleteRow"></td>
+              </tr>
+              <tr>
+                <td class="category">Pub</td>
+                <td>£<input type="number" class="freeSubtotals budgetSubtotals" disabled/></td>
+                <td><input type="text" class="freePercent subtotalsPercent" readonly/></td>
+                <td><input type="button" value="-" class="btn btn-primary button deleteRow"></td>
+              </tr>
+              <tr>
+                <td class="category">Cinema</td>
+                <td>£<input type="number" class="freeSubtotals budgetSubtotals" disabled/></td>
+                <td><input type="text" class="freePercent subtotalsPercent" readonly/></td>
+                <td><input type="button" value="-" class="btn btn-primary button deleteRow"></td>
+              </tr>
+              <tr>
+                <td class="category">Clothes</td>
+                <td>£<input type="number" class="freeSubtotals budgetSubtotals" disabled/></td>
+                <td><input type="text" class="freePercent subtotalsPercent" readonly/></td>
+                <td><input type="button" value="-" class="btn btn-primary button deleteRow"></td>
+              </tr>
+              <tr>
+                <td class="category">Music</td>
+                <td>£<input type="number" class="freeSubtotals budgetSubtotals" disabled/></td>
+                <td><input type="text" class="freePercent subtotalsPercent" readonly/></td>
+                <td><input type="button" value="-" class="btn btn-primary button deleteRow"></td>
+              </tr>
+              <tr>
+                <td class="category">Books</td>
+                <td>£<input type="number" class="freeSubtotals budgetSubtotals" disabled/></td>
+                <td><input type="text" class="freePercent subtotalsPercent" readonly/></td>
+                <td><input type="button" value="-" class="btn btn-primary button deleteRow"></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input type="button" value="+" class="btn btn-primary button addRow active" /></td>
+              </tr>
+            </tfoot>
+          </table>
+        </form>
+      </div>
+
+      <div class="col-md-4" id="fixedSpend">
+        <form>
+          <!-- Fixed Expenditure Budget breakdown table -->
+          <table class="table" id="fixedSpendTbl">
+            <caption class="text-center tableHeading">Fixed Expenditure
+            </caption>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Target</th>
+                <th>%</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="category">Rent</td>
+                <td>£<input type="number" class="fixedSubtotals budgetSubtotals" disabled/></td>
+                <td><input type="text" class="fixedPercent subtotalsPercent" readonly/></td>
+                <td><input type="button" value="-" class="btn btn-primary button deleteRow"></td>
+              </tr>
+              <tr>
+                <td class="category">Bills</td>
+                <td>£<input type="number" class="fixedSubtotals budgetSubtotals" disabled/></td>
+                <td><input type="text" class="fixedPercent subtotalsPercent" readonly/></td>
+                <td><input type="button" value="-" class="btn btn-primary button deleteRow"></td>
+              </tr>
+              <tr>
+                <td class="category">Transport</td>
+                <td>£<input type="number" class="fixedSubtotals budgetSubtotals" disabled/></td>
+                <td><input type="text" class="fixedPercent subtotalsPercent" readonly/></td>
+                <td><input type="button" value="-" class="btn btn-primary button deleteRow"></td>
+              </tr>
+              <tr>
+                <td class="category">Food Shopping</td>
+                <td>£<input type="number" class="fixedSubtotals budgetSubtotals" disabled/></td>
+                <td><input type="text" class="fixedPercent subtotalsPercent" readonly/></td>
+                <td><input type="button" value="-" class="btn btn-primary button deleteRow"></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input type="button" value="+" class="btn btn-primary button addRow active" /></td>
+              </tr>
+            </tfoot>
+          </table>
+        </form>
+      </div>
+
+      <div class="col-md-4" id="totals">
+        <form>
+          <!-- totals table -->
+          <table class="table" id="totalsTbl">
+            <caption class="text-center tableHeading">Totals</caption>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Total Amount</th>
+                <th>%</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Free Expenditure</td>
+                <td>£<input type="number" class="totals" id="freeTotal" readonly/></td>
+                <td><input type="text" class="totalsPercent" readonly/></td>
+              </tr>
+              <tr>
+                <td>Fixed Expenditure</td>
+                <td>£<input type="number" class="totals" id="fixedTotal" readonly/></td>
+                <td><input type="text" class="totalsPercent" readonly/></td>
+              </tr>
+              <tr>
+                <td>Savings</td>
+                <td>£<input type="number" class="totals" id="savings" readonly/>
+                </td>
+                <td><input type="text" class="totalsPercent" readonly/></td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+        <div class="text-center">
+          After a year you will save: £
+          <input type="number" id="yearlySavings" readonly/>
+        </div>
+        <br><br>
+        <p id="warningMsg" class="alert alert-danger"><span><strong>The sum of
+the sub fields exceeds your Total Budget</strong></span></p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="javascript.js"></script>
+
+
+</body>
+
+</html>

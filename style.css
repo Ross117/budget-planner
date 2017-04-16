@@ -1,0 +1,88 @@
+body {
+  font-family: Capriola, Verdana, sans-serif;
+  font-size: 14px;
+}
+
+th,
+td {
+  text-align: center;
+}
+
+input {
+  width: 90px;
+  height: 25px;
+}
+
+/*hide the numeric input spin buttons in firefox*/
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/*hide the numeric input spin buttons in chrome & safari*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.tableHeading {
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+}
+
+.button {
+  width: 20px;
+  height: 22px;
+}
+
+/* subtotals percentage input field */
+.subtotalsPercent {
+  width: 70px;
+}
+
+/*totals percentage input field*/
+.totalsPercent {
+  width: 70px;
+}
+
+/*intro line under page heading*/
+#intro {
+  font-style: italic;
+}
+
+/*enter name input box*/
+#name {
+  width: 200px;
+}
+
+/*submit name button*/
+#nameSubmit {
+  width: 130px;
+  height: 30px;
+}
+
+/* alter name button */
+#alterName {
+  display: none;
+  width: 130px;
+  height: 30px;
+}
+
+/* Input Box for total budget */
+#totalBudget {
+  width: 100px;
+  height: 30px;
+}
+
+/* Warning message */
+#warningMsg {
+  display: none;
+  font-style: italic;
+}
+
+/*income frequency drop-down list*/
+#frequency {
+  width: 120px;
+  height: 35px;
+}
