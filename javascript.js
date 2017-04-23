@@ -1,4 +1,4 @@
-// calculates totals, inputs subtotal percentages and checks that the
+í// calculates totals, inputs subtotal percentages and checks that the
 // sum of the subtotals isn't greater than the the user's total income
 function calculateFigures(spendType) {
   "use strict";
